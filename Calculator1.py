@@ -3,20 +3,20 @@ from tkinter.ttk import *
 
 root=Tk()
 root.title("Calculator")
-root.iconbitmap("C:\\Users\\eshwar\\GUI projects\\calcicon.ico")
+#root.iconbitmap("C:\\Users\\eshwar\\GUI projects\\calcicon.ico")
 bframe1=Frame(root)
 text_frame1=Frame(root)
 text_frame1.pack()
+l=Label(text_frame1,text="result",style='W.TButton',background="red",foreground="black")
 bframe1.pack()
 style=Style()
-style.configure('W.TButton',font=('serif',20,'bold',),fg='black',bg="pink")
+style.configure('W.TButton',font=('sans-serif',20,'bold',),fg='black',bg="pink")
 style.map('W.TButton', foreground = [('active', '!disabled', 'black')],
                      background = [('active', 'black')])
 
-t=Text(text_frame1,width=59,height=3,background="lightseagreen",foreground="black")
-t.grid()
-l=Label(text_frame1,text="result",style='W.TButton',background="red",foreground="black")
-l.grid()
+t=Text(text_frame1,font=("sans-serif",20),width=47,height=3,background="lightseagreen",foreground="black")
+t.pack()
+l.pack(side=RIGHT)
 def one():
     t.insert(END,"1")
 def two():
@@ -60,7 +60,7 @@ def show():
 def clear():
     t.delete(0.0,END)
 def delete():
-    l.configure(text=" ")
+    t.delete("end-2c")
         
               
 one=Button(bframe1,text="1",style='W.TButton',command=one)
